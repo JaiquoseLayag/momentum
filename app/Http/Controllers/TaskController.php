@@ -60,9 +60,14 @@ class TaskController extends Controller
         return redirect()->route('tasks.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    public function complete(Task $task)
+    {
+        $task->update([
+            'status' => 'completed'
+        ]);
+
+        return redirect()->route('tasks.index');
+    }
     public function destroy(Task $task)
     {
         $task->delete();
