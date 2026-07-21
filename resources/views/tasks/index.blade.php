@@ -33,9 +33,15 @@
                                 </p>
                             </div>
 
-                            <span class="px-3 py-1 rounded-full bg-gray-100 text-sm">
-                                {{ $task->status }}
-                            </span>
+                           @if($task->status === 'completed')
+                                <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-semibold">
+                                    Completed
+                                </span>
+                            @else
+                                <span class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-sm font-semibold">
+                                    Pending
+                                </span>
+                            @endif
                         </div>
 
                         <div class="mt-4 space-y-1 text-sm">
@@ -46,7 +52,24 @@
 
                             <p>
                                 <strong>Priority:</strong>
-                                {{ ucfirst($task->priority) }}
+
+                                @if($task->priority === 'high')
+                                    <span class="px-2 py-1 rounded-full bg-red-100 text-red-700 text-xs font-semibold">
+                                        🔴 High
+                                    </span>
+
+                                @elseif($task->priority === 'medium')
+                                    <span class="px-2 py-1 rounded-full bg-yellow-100 text-yellow-700 text-xs font-semibold">
+                                        🟡 Medium
+                                    </span>
+
+                                @else
+                                    <span class="px-2 py-1 rounded-full bg-green-100 text-green-700 text-xs font-semibold">
+                                        🟢 Low
+                                    </span>
+
+                                @endif
+
                             </p>
 
                             <p>
@@ -75,7 +98,11 @@
                                     Edit
                                 </a>
 
+                                @if($task->status !== 'completed')
+
                                 <form method="POST" action="{{ route('tasks.complete', $task) }}">
+                                    
+                                @endif
 
                                     @csrf
                                     @method('PATCH')
