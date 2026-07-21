@@ -1,11 +1,9 @@
 <x-app-layout>
 
     <x-slot name="header">
-
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800">
             Momentum Dashboard
         </h2>
-
     </x-slot>
 
 
@@ -13,18 +11,55 @@
 
         <div class="max-w-7xl mx-auto px-6">
 
-            <h1 class="text-3xl font-bold text-gray-800">
-                Good morning, {{ Auth::user()->name }}.
-            </h1>
-
-            <p class="text-gray-600 mt-2">
-                Here's what you should focus on next.
-            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
 
-            <div class="mt-8">
+                <div class="bg-white rounded-xl shadow p-6">
+                    <h3 class="text-gray-500 text-sm">
+                        Total Tasks
+                    </h3>
 
-                <x-focus-card />
+                    <p class="text-3xl font-bold mt-2">
+                        {{ $totalTasks }}
+                    </p>
+                </div>
+
+
+
+                <div class="bg-white rounded-xl shadow p-6">
+                    <h3 class="text-gray-500 text-sm">
+                        Completed
+                    </h3>
+
+                    <p class="text-3xl font-bold mt-2 text-green-600">
+                        {{ $completedTasks }}
+                    </p>
+                </div>
+
+
+
+                <div class="bg-white rounded-xl shadow p-6">
+                    <h3 class="text-gray-500 text-sm">
+                        Pending
+                    </h3>
+
+                    <p class="text-3xl font-bold mt-2 text-yellow-600">
+                        {{ $pendingTasks }}
+                    </p>
+                </div>
+
+
+
+                <div class="bg-white rounded-xl shadow p-6">
+                    <h3 class="text-gray-500 text-sm">
+                        High Priority
+                    </h3>
+
+                    <p class="text-3xl font-bold mt-2 text-red-600">
+                        {{ $highPriorityTasks }}
+                    </p>
+                </div>
+
 
             </div>
 
