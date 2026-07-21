@@ -26,6 +26,7 @@
         </div>
 
 
+
         <div class="mb-4">
 
             <label class="block text-sm font-medium text-gray-700">
@@ -42,6 +43,7 @@
         </div>
 
 
+
         <div class="mb-4">
 
             <label class="block text-sm font-medium text-gray-700">
@@ -56,6 +58,96 @@
             >
 
         </div>
+
+
+
+        <div class="mb-4">
+
+            <label class="block text-sm font-medium text-gray-700">
+                Priority
+            </label>
+
+            <select
+                name="priority"
+                class="mt-1 block w-full rounded-lg border-gray-300">
+
+                <option value="low">
+                    Low
+                </option>
+
+                <option value="medium" selected>
+                    Medium
+                </option>
+
+                <option value="high">
+                    High
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <div class="mb-4">
+
+            <label class="block text-sm font-medium text-gray-700">
+                Difficulty
+            </label>
+
+            <select
+                name="difficulty"
+                class="mt-1 block w-full rounded-lg border-gray-300">
+
+                <option value="easy">
+                    Easy
+                </option>
+
+                <option value="medium" selected>
+                    Medium
+                </option>
+
+                <option value="hard">
+                    Hard
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <div class="mb-4">
+
+            <label class="block text-sm font-medium text-gray-700">
+                Estimated Time (minutes)
+            </label>
+
+            <input
+                type="number"
+                name="estimated_time"
+                class="mt-1 block w-full rounded-lg border-gray-300"
+                placeholder="60"
+            >
+
+        </div>
+
+
+
+        <div class="mb-6">
+
+            <label class="block text-sm font-medium text-gray-700">
+                Deadline
+            </label>
+
+            <input
+                type="date"
+                name="deadline"
+                class="mt-1 block w-full rounded-lg border-gray-300"
+            >
+
+        </div>
+
 
 
         <button

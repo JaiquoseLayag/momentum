@@ -48,11 +48,11 @@ class TaskController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
             'category' => 'required|string|max:255',
-            // 'priority' => 'required',
-            // 'difficulty' => 'required',
-            // 'estimated_time' => 'nullable|integer',
-            // 'deadline' => 'nullable|date',
-            // 'status' => 'required',
+            'priority' => 'required',
+            'difficulty' => 'required',
+            'estimated_time' => 'nullable|integer',
+            'deadline' => 'nullable|date',
+            'status' => 'required',
         ]);
 
 
