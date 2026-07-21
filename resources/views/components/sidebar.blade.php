@@ -19,8 +19,8 @@
         </a>
 
 
-        <a href="#"
-           class="block rounded-lg px-4 py-2 hover:bg-blue-700">
+        <a href="{{ route('focus.index') }}"
+            class="block rounded-lg px-4 py-2 hover:bg-blue-700">
             Focus
         </a>
 
