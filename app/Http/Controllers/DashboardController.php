@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
-
 class DashboardController extends Controller
 {
     public function index()
@@ -25,11 +23,19 @@ class DashboardController extends Controller
             ->count();
 
 
+        $recentTasks = auth()->user()
+            ->tasks()
+            ->latest()
+            ->take(5)
+            ->get();
+
+
         return view('dashboard', compact(
             'totalTasks',
             'completedTasks',
             'pendingTasks',
-            'highPriorityTasks'
+            'highPriorityTasks',
+            'recentTasks'
         ));
     }
 }
