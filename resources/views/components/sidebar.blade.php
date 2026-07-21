@@ -4,26 +4,36 @@
         Momentum
     </div>
 
+
     <nav class="space-y-3">
 
-        <a href="#" class="block rounded-lg px-4 py-2 hover:bg-blue-700">
-             Dashboard
+        <a href="{{ route('dashboard') }}"
+           class="block rounded-lg px-4 py-2 hover:bg-blue-700">
+            Dashboard
         </a>
 
-        <a href="#" class="block rounded-lg px-4 py-2 hover:bg-blue-700">
-             Tasks
+
+        <a href="{{ route('tasks.index') }}"
+           class="block rounded-lg px-4 py-2 hover:bg-blue-700">
+            Tasks
         </a>
 
-        <a href="#" class="block rounded-lg px-4 py-2 hover:bg-blue-700">
-             Focus
+
+        <a href="#"
+           class="block rounded-lg px-4 py-2 hover:bg-blue-700">
+            Focus
         </a>
 
-        <a href="#" class="block rounded-lg px-4 py-2 hover:bg-blue-700">
-             Progress
+
+        <a href="#"
+           class="block rounded-lg px-4 py-2 hover:bg-blue-700">
+            Progress
         </a>
 
-        <a href="#" class="block rounded-lg px-4 py-2 hover:bg-blue-700">
-             Settings
+
+        <a href="#"
+           class="block rounded-lg px-4 py-2 hover:bg-blue-700">
+            Settings
         </a>
 
     </nav>
