@@ -9,75 +9,196 @@
 
     <div class="py-12">
 
-        <div class="bg-white rounded-xl shadow p-6">
+        <div class="max-w-7xl mx-auto px-6">
 
-            <h3 class="text-lg font-bold mb-6">
-                Edit Task
-            </h3>
+            <div class="bg-white rounded-xl shadow p-6">
 
-
-            <form method="POST" action="{{ route('tasks.update', $task) }}">
-
-                @csrf
-                @method('PUT')
+                <h3 class="text-lg font-bold mb-6">
+                    Edit Task
+                </h3>
 
 
-                <div class="mb-4">
+                <form method="POST" action="{{ route('tasks.update', $task) }}">
 
-                    <label class="block text-sm font-medium text-gray-700">
-                        Title
-                    </label>
+                    @csrf
+                    @method('PUT')
 
-                    <input
-                        type="text"
-                        name="title"
-                        value="{{ $task->title }}"
-                        class="mt-1 block w-full rounded-lg border-gray-300"
+
+                    <div class="mb-4">
+
+                        <label class="block text-sm font-medium text-gray-700">
+                            Title
+                        </label>
+
+                        <input
+                            type="text"
+                            name="title"
+                            value="{{ $task->title }}"
+                            class="mt-1 block w-full rounded-lg border-gray-300"
+                        >
+
+                    </div>
+
+
+
+                    <div class="mb-4">
+
+                        <label class="block text-sm font-medium text-gray-700">
+                            Description
+                        </label>
+
+                        <textarea
+                            name="description"
+                            rows="4"
+                            class="mt-1 block w-full rounded-lg border-gray-300"
+                        >{{ $task->description }}</textarea>
+
+                    </div>
+
+
+
+                    <div class="mb-4">
+
+                        <label class="block text-sm font-medium text-gray-700">
+                            Category
+                        </label>
+
+                        <input
+                            type="text"
+                            name="category"
+                            value="{{ $task->category }}"
+                            class="mt-1 block w-full rounded-lg border-gray-300"
+                        >
+
+                    </div>
+
+
+
+                    <div class="mb-4">
+
+                        <label class="block text-sm font-medium text-gray-700">
+                            Priority
+                        </label>
+
+                        <select
+                            name="priority"
+                            class="mt-1 block w-full rounded-lg border-gray-300">
+
+                            <option value="low" {{ $task->priority == 'low' ? 'selected' : '' }}>
+                                Low
+                            </option>
+
+                            <option value="medium" {{ $task->priority == 'medium' ? 'selected' : '' }}>
+                                Medium
+                            </option>
+
+                            <option value="high" {{ $task->priority == 'high' ? 'selected' : '' }}>
+                                High
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="mb-4">
+
+                        <label class="block text-sm font-medium text-gray-700">
+                            Difficulty
+                        </label>
+
+                        <select
+                            name="difficulty"
+                            class="mt-1 block w-full rounded-lg border-gray-300">
+
+                            <option value="easy" {{ $task->difficulty == 'easy' ? 'selected' : '' }}>
+                                Easy
+                            </option>
+
+                            <option value="medium" {{ $task->difficulty == 'medium' ? 'selected' : '' }}>
+                                Medium
+                            </option>
+
+                            <option value="hard" {{ $task->difficulty == 'hard' ? 'selected' : '' }}>
+                                Hard
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="mb-4">
+
+                        <label class="block text-sm font-medium text-gray-700">
+                            Estimated Time (minutes)
+                        </label>
+
+                        <input
+                            type="number"
+                            name="estimated_time"
+                            value="{{ $task->estimated_time }}"
+                            class="mt-1 block w-full rounded-lg border-gray-300"
+                        >
+
+                    </div>
+
+
+
+                    <div class="mb-4">
+
+                        <label class="block text-sm font-medium text-gray-700">
+                            Deadline
+                        </label>
+
+                        <input
+                            type="date"
+                            name="deadline"
+                            value="{{ $task->deadline }}"
+                            class="mt-1 block w-full rounded-lg border-gray-300"
+                        >
+
+                    </div>
+
+
+
+                    <div class="mb-6">
+
+                        <label class="block text-sm font-medium text-gray-700">
+                            Status
+                        </label>
+
+                        <select
+                            name="status"
+                            class="mt-1 block w-full rounded-lg border-gray-300">
+
+                            <option value="pending" {{ $task->status == 'pending' ? 'selected' : '' }}>
+                                Pending
+                            </option>
+
+                            <option value="completed" {{ $task->status == 'completed' ? 'selected' : '' }}>
+                                Completed
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <button
+                        type="submit"
+                        class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700"
                     >
-
-                </div>
-
-
-                <div class="mb-4">
-
-                    <label class="block text-sm font-medium text-gray-700">
-                        Description
-                    </label>
-
-                    <textarea
-                        name="description"
-                        rows="4"
-                        class="mt-1 block w-full rounded-lg border-gray-300"
-                    >{{ $task->description }}</textarea>
-
-                </div>
+                        Save Changes
+                    </button>
 
 
-                <div class="mb-4">
+                </form>
 
-                    <label class="block text-sm font-medium text-gray-700">
-                        Category
-                    </label>
-
-                    <input
-                        type="text"
-                        name="category"
-                        value="{{ $task->category }}"
-                        class="mt-1 block w-full rounded-lg border-gray-300"
-                    >
-
-                </div>
-
-
-                <button
-                    type="submit"
-                    class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700"
-                >
-                    Save Changes
-                </button>
-
-
-            </form>
+            </div>
 
         </div>
 
