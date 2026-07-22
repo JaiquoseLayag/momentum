@@ -6,137 +6,110 @@
         </h2>
     </x-slot>
 
-
     <div class="py-12">
 
         <div class="max-w-7xl mx-auto px-6">
 
+            {{-- Statistics --}}
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <x-stat-card
+                    title="Total Tasks"
+                    :value="$totalTasks"
+                    valueColor="text-blue-600"
+                >
+                    <x-slot:icon>
+                        <x-heroicon-o-clipboard-document-list class="w-5 h-5 text-blue-600" />
+                    </x-slot:icon>
+                </x-stat-card>
 
+                <x-stat-card
+                    title="Completed"
+                    :value="$completedTasks"
+                    valueColor="text-green-600"
+                >
+                    <x-slot:icon>
+                        <x-heroicon-o-check-circle class="w-5 h-5 text-green-600" />
+                    </x-slot:icon>
+                </x-stat-card>
 
-                <div class="bg-white rounded-xl shadow p-6">
-                    <h3 class="text-gray-500 text-sm">
-                        Total Tasks
-                    </h3>
+                <x-stat-card
+                    title="Pending"
+                    :value="$pendingTasks"
+                    valueColor="text-yellow-600"
+                >
+                    <x-slot:icon>
+                        <x-heroicon-o-clock class="w-5 h-5 text-yellow-600" />
+                    </x-slot:icon>
+                </x-stat-card>
 
-                    <p class="text-3xl font-bold mt-2">
-                        {{ $totalTasks }}
-                    </p>
-                </div>
-
-
-
-                <div class="bg-white rounded-xl shadow p-6">
-                    <h3 class="text-gray-500 text-sm">
-                        Completed
-                    </h3>
-
-                    <p class="text-3xl font-bold mt-2 text-green-600">
-                        {{ $completedTasks }}
-                    </p>
-                </div>
-
-
-
-                <div class="bg-white rounded-xl shadow p-6">
-                    <h3 class="text-gray-500 text-sm">
-                        Pending
-                    </h3>
-
-                    <p class="text-3xl font-bold mt-2 text-yellow-600">
-                        {{ $pendingTasks }}
-                    </p>
-                </div>
-
-
-
-                <div class="bg-white rounded-xl shadow p-6">
-                    <h3 class="text-gray-500 text-sm">
-                        High Priority
-                    </h3>
-
-                    <p class="text-3xl font-bold mt-2 text-red-600">
-                        {{ $highPriorityTasks }}
-                    </p>
-                </div>
-
+                <x-stat-card
+                    title="High Priority"
+                    :value="$highPriorityTasks"
+                    valueColor="text-red-600"
+                >
+                    <x-slot:icon>
+                        <x-heroicon-o-exclamation-triangle class="w-5 h-5 text-red-600" />
+                    </x-slot:icon>
+                </x-stat-card>
 
             </div>
 
+            {{-- Recent Tasks --}}
+            <div class="mt-8">
 
-            <div class="mt-8 bg-white rounded-xl shadow p-6">
+                <x-card>
 
+                    <div class="flex justify-between items-center mb-4">
 
-                <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-bold">
+                            Recent Tasks
+                        </h3>
 
-                    <h3 class="text-lg font-bold">
-                        Recent Tasks
-                    </h3>
-
-
-                    <a href="{{ route('tasks.index') }}"
-                       class="text-blue-600 hover:underline">
-                        View All
-                    </a>
-
-                </div>
-
-
-
-                @forelse($recentTasks as $task)
-
-                    <div class="border-b py-4 last:border-b-0">
-
-                        <div class="flex justify-between items-start">
-
-
-                            <div>
-
-                                <h4 class="font-semibold">
-                                    {{ $task->title }}
-                                </h4>
-
-
-                                <p class="text-sm text-gray-600">
-                                    {{ $task->category }}
-                                </p>
-
-                            </div>
-
-
-
-                            @if($task->status === 'completed')
-
-                                <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm">
-                                    Completed
-                                </span>
-
-                            @else
-
-                                <span class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-sm">
-                                    Pending
-                                </span>
-
-                            @endif
-
-
-                        </div>
+                        <a
+                            href="{{ route('tasks.index') }}"
+                            class="text-blue-600 hover:underline"
+                        >
+                            View All
+                        </a>
 
                     </div>
 
+                    @forelse($recentTasks as $task)
 
-                @empty
+                        <div class="border-b py-4 last:border-b-0">
 
-                    <p class="text-gray-500">
-                        No tasks yet.
-                    </p>
+                            <div class="flex justify-between items-start">
 
-                @endforelse
+                                <div>
 
+                                    <h4 class="font-semibold">
+                                        {{ $task->title }}
+                                    </h4>
+
+                                    <p class="text-sm text-gray-600">
+                                        {{ $task->category }}
+                                    </p>
+
+                                </div>
+
+                                <x-status-badge :status="$task->status" />
+
+                            </div>
+
+                        </div>
+
+                    @empty
+
+                        <p class="text-gray-500">
+                            No tasks yet.
+                        </p>
+
+                    @endforelse
+
+                </x-card>
 
             </div>
-
 
         </div>
 

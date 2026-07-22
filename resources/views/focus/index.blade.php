@@ -6,19 +6,15 @@
         </h2>
     </x-slot>
 
-
     <div class="py-12">
 
         <div class="max-w-7xl mx-auto px-6">
 
-
             <div class="bg-white rounded-xl shadow p-8 text-center">
-
 
                 <h3 class="text-lg font-bold mb-6">
                     Focus Timer
                 </h3>
-
 
                 <div 
                     id="timer"
@@ -26,7 +22,6 @@
                 >
                     25:00
                 </div>
-
 
                 <div class="flex justify-center gap-4">
 
@@ -36,13 +31,11 @@
                         Start
                     </button>
 
-
                     <button
                         id="pause"
                         class="bg-yellow-500 text-white px-6 py-2 rounded-lg hover:bg-yellow-600">
                         Pause
                     </button>
-
 
                     <button
                         id="reset"
@@ -52,18 +45,13 @@
 
                 </div>
 
-
             </div>
 
-
-
             <div class="mt-8 bg-white rounded-xl shadow p-6">
-
 
                 <h3 class="text-lg font-bold mb-4">
                     Select Task
                 </h3>
-
 
                 <select
                     id="task"
@@ -83,12 +71,9 @@
 
                     @endforelse
 
-
                 </select>
 
-
             </div>
-
 
         </div>
 
