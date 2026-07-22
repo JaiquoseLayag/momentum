@@ -5,29 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+class FocusSession extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'description',
-        'category',
-        'priority',
-        'difficulty',
-        'estimated_time',
-        'deadline',
-        'status',
+        'user_id',
+        'task_id',
+        'duration',
+        'started_at',
+        'completed_at',
     ];
-
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function focusSessions()
+    public function task()
     {
-        return $this->hasMany(FocusSession::class);
+        return $this->belongsTo(Task::class);
     }
 }

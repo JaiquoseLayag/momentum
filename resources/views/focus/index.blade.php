@@ -65,7 +65,9 @@
                 </h3>
 
 
-                <select class="w-full rounded-lg border-gray-300">
+                <select
+                    id="task"
+                    class="w-full rounded-lg border-gray-300">
 
                     @forelse($tasks as $task)
 
@@ -91,88 +93,5 @@
         </div>
 
     </div>
-
-    <script>
-
-    let time = 25 * 60;
-
-    let timer = null;
-
-
-    const display = document.getElementById('timer');
-
-    const startButton = document.getElementById('start');
-
-    const pauseButton = document.getElementById('pause');
-
-    const resetButton = document.getElementById('reset');
-
-
-
-    function updateTimer()
-    {
-        let minutes = Math.floor(time / 60);
-
-        let seconds = time % 60;
-
-
-        display.textContent =
-            `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-    }
-
-
-
-    startButton.addEventListener('click', function(){
-
-        if(timer !== null)
-            return;
-
-
-        timer = setInterval(function(){
-
-            if(time <= 0)
-            {
-                clearInterval(timer);
-                timer = null;
-                return;
-            }
-
-
-            time--;
-
-            updateTimer();
-
-
-        }, 1000);
-
-
-    });
-
-
-
-    pauseButton.addEventListener('click', function(){
-
-        clearInterval(timer);
-
-        timer = null;
-
-    });
-
-
-
-    resetButton.addEventListener('click', function(){
-
-        clearInterval(timer);
-
-        timer = null;
-
-        time = 25 * 60;
-
-        updateTimer();
-
-    });
-
-
-    </script>
 
 </x-app-layout>
