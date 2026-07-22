@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FocusController;
 use App\Http\Controllers\FocusSessionController;
 use App\Http\Controllers\FocusHistoryController;
+use App\Http\Controllers\ProgressController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,6 +33,9 @@ Route::middleware('auth')->group(function () {
     ->name('focus.sessions.store');
 
     Route::get('/focus/history', [FocusHistoryController::class, 'index'])->name('focus.history');
+
+    Route::get('/progress', [ProgressController::class, 'index'])
+    ->name('progress.index');
 });
 
 require __DIR__.'/auth.php';
