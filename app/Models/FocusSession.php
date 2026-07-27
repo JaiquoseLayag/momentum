@@ -17,6 +17,14 @@ class FocusSession extends Model
         'completed_at',
     ];
 
+    protected function casts(): array
+    {
+        return [
+            'started_at' => 'datetime',
+            'completed_at' => 'datetime',
+        ];
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

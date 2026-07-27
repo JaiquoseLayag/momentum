@@ -25,9 +25,14 @@
         </a>
 
 
-        <a href="#"
+        <a href="{{ route('progress.index') }}"
            class="block rounded-lg px-4 py-2 hover:bg-blue-700">
             Progress
+        </a>
+
+         <a href="{{ route('achievements.index') }}"
+           class="block rounded-lg px-4 py-2 hover:bg-blue-700">
+            Achievements
         </a>
 
 

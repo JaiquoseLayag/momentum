@@ -7,6 +7,7 @@ use App\Http\Controllers\FocusController;
 use App\Http\Controllers\FocusSessionController;
 use App\Http\Controllers\FocusHistoryController;
 use App\Http\Controllers\ProgressController;
+use App\Http\Controllers\AchievementController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
