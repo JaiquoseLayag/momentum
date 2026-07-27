@@ -10,47 +10,46 @@
 
         <div class="max-w-7xl mx-auto px-6">
 
+            {{-- Statistics --}}
             <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
 
-                <x-stat-card
-                    title="Focus Sessions"
-                    :value="$totalSessions"
-                    valueColor="text-blue-600"
-                >
-                    <x-slot:icon>
-                        <x-heroicon-o-clock class="w-5 h-5 text-blue-600" />
-                    </x-slot:icon>
-                </x-stat-card>
+                {{-- Stat Cards --}}
 
-                <x-stat-card
-                    title="Focus Minutes"
-                    :value="$totalMinutes"
-                    valueColor="text-green-600"
-                >
-                    <x-slot:icon>
-                        <x-heroicon-o-fire class="w-5 h-5 text-green-600" />
-                    </x-slot:icon>
-                </x-stat-card>
+            </div>
 
-                <x-stat-card
-                    title="Completed Tasks"
-                    :value="$completedTasks"
-                    valueColor="text-purple-600"
-                >
-                    <x-slot:icon>
-                        <x-heroicon-o-check-circle class="w-5 h-5 text-purple-600" />
-                    </x-slot:icon>
-                </x-stat-card>
+            {{-- Streak --}}
+            <div class="mt-8">
+                <x-streak-card :streak="$streak" />
+            </div>
 
-                <x-stat-card
-                    title="Productivity"
-                    :value="$productivityRate . '%'"
-                    valueColor="text-red-600"
-                >
-                    <x-slot:icon>
-                        <x-heroicon-o-chart-bar class="w-5 h-5 text-red-600" />
-                    </x-slot:icon>
-                </x-stat-card>
+            {{-- Daily Goal --}}
+            <div class="mt-8">
+                <x-daily-goal-card
+                    :daily-goal="$dailyGoal"
+                    :today-minutes="$todayMinutes"
+                    :goal-percentage="$goalPercentage"
+                    :remaining-minutes="$remainingMinutes"
+                />
+            </div>
+
+            {{-- Weekly Chart --}}
+            <div class="mt-8">
+
+                {{-- Your chart card here --}}
+
+            </div>
+
+            {{-- Top Focused Tasks --}}
+            <div class="mt-8">
+
+                <x-top-tasks-card :top-tasks="$topTasks" />
+
+            </div>
+
+            {{-- Recent Focus Sessions --}}
+            <div class="mt-8">
+
+                {{-- Your recent sessions card here --}}
 
             </div>
 

@@ -36,6 +36,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/progress', [ProgressController::class, 'index'])
     ->name('progress.index');
+
+    Route::get('/achievements', [AchievementController::class, 'index'])
+    ->name('achievements.index');
 });
 
 require __DIR__.'/auth.php';
